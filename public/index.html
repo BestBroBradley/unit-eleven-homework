@@ -118,7 +118,7 @@
 
     // A function for saving a note to the db
     var saveNote = function (note) {
-      return $.ajax({
+      $.ajax({
         url: "/api/notes",
         data: note,
         method: "POST"
