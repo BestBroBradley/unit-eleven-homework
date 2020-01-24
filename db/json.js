@@ -1,3 +1,3 @@
-const JSONdata = [{"title":"Test Title","text":"Test text"}]
+const JSONdata = []
 
 module.exports = JSONdata

@@ -1,15 +1,14 @@
 const express = require("express")
 const path = require("path")
-const dbJSON = require("../db/json.js") 
 const fs = require("fs")
 
 const app = express();
 var PORT = process.env.PORT || 8080;
 
+const dbJSON = []
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-console.log (dbJSON)
 
 // HTML ROUTES:
 
@@ -35,6 +34,7 @@ app.get("*", function (req, res) {
 //  * POST `/api/notes` - Should recieve a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
 app.post ("/api/notes", function (req, res) {
     let newNote = req.body;
+    newNote.id = newNote.title.split(" ").join("").toLowerCase()
     dbJSON.push(newNote);
     console.log(newNote)
     console.log(dbJSON)
@@ -44,6 +44,14 @@ app.post ("/api/notes", function (req, res) {
 //  * DELETE `/api/notes/:id` - Should recieve a query paramter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
 
 app.delete ("/api/notes/:id", function (req, res) {
+    var delNote = req.params.id
+
+    for (var i = 0; i < dbJSON.length; i++) {
+        if (delNote === dbJSON[i].id) {
+            dbJSON.splice(i, 1)
+            return res.json(dbJSON)
+        }
+    } res.send(false)
 
 })
 
