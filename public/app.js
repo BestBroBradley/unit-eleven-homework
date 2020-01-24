@@ -1,13 +1,15 @@
 const express = require("express")
 const path = require("path")
-const dbJSON = require("../db/db.json") 
+const dbJSON = require("../db/json.js") 
+const fs = require("fs")
 
 const app = express();
-const PORT = 8080
+var PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+console.log (dbJSON)
 
 // HTML ROUTES:
 
@@ -34,7 +36,7 @@ app.get("/api/notes", function (req, res) {
 app.post ("/api/notes", function (req, res) {
     let newNote = req.body;
 
-    fs.appendFile('db.json', newNote, (err) => {
+    fs.appendFile('../db/json.js', newNote, (err) => {
         if (err) throw err;
         console.log('The file has been saved!')
         return res.json(dbJSON)
