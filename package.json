@@ -1,15 +1,26 @@
 {
-  "name": "note-taker",
+  "name": "unit-eleven-homework",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "notetaking app",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BestBroBradley/unit-eleven-homework.git"
+  },
+  "keywords": [
+    "note",
+    "notetaker",
+    "note-taker"
+  ],
+  "author": "Allison Bradley",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.4",
-    "mysql": "^2.16.0"
-  }
+  "bugs": {
+    "url": "https://github.com/BestBroBradley/unit-eleven-homework/issues"
+  },
+  "homepage": "https://github.com/BestBroBradley/unit-eleven-homework#readme"
 }
