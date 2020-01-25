@@ -2,7 +2,7 @@
   "name": "unit-eleven-homework",
   "version": "1.0.0",
   "description": "notetaking app",
-  "main": "app.js",
+  "main": "./app.js",
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
