@@ -14,7 +14,7 @@ app.use(express.static("public"))
 
 //  * GET `/notes` - Should return the `notes.html` file.
 app.get("/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "notes.html"))
+    res.sendFile(path.join(__dirname, "public/notes.html"))
 })
 
 
@@ -29,7 +29,7 @@ app.get("/api/notes", function (req, res) {
 
 //  * GET `*` - Should return the `index.html` file
 app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "index.html"))
+    res.sendFile(path.join(__dirname, "public/index.html"))
 })
 //  * POST `/api/notes` - Should recieve a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
 app.post ("/api/notes", function (req, res) {
